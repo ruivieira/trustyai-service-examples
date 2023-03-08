@@ -117,3 +117,21 @@ $ curl -X POST -k http://localhost:8008/v2/models/example-sklearn-isvc/infer -H 
 ```
 
 You should now see the ModelMesh logs sending the payloads and the service receiving them.
+
+## Script
+
+There is a [script](scripts/basic_k8s_deployment.sh) to automate deployment.
+
+Hard requirements:
+- KinD
+- [yq](https://github.com/kislyuk/yq)
+- JDK
+- Maven
+
+Configuration:
+
+Make sure:
+- To change the `QUAY_REPO` to your Quay username
+- To log in Quay with (say) Docker CLI
+
+This script will delete any `modelmesh` or `modelmesh-serving` in your `/tmp` directory (no deletions outside `/tmp`).
